@@ -15,6 +15,8 @@ RUN apt-get update -qq && \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
 
+RUN apt-get install vim
+
 RUN mkdir /myapp
 WORKDIR /myapp
 
@@ -25,6 +27,7 @@ RUN bundle install
 
 COPY package.json yarn.lock ./
 RUN yarn install
+
 
 COPY . /myapp
 
