@@ -3,7 +3,6 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
-    @products = Product.order(created_at: :desc)
   end
 
   def new
@@ -20,7 +19,6 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @products = Product.all
     @products = Product.order(created_at: :desc)
   end
 

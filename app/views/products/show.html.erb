@@ -55,24 +55,7 @@
             <div class="container px-4 px-lg-5 mt-5">
                 <h2 class="fw-bolder mb-4">Related products</h2>
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                  <% @products.each do |product| %>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <%= image_tag product.image, class: "card-img-top img-fluid h-100", alt: "..." %>
-
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder"><%= product.name %></h5>
-                                    <div><%= "値段は#{product.price} 円" %></div>
-                                    <div><%= "在庫は#{product.stock} 個" %></div>
-                                    <a href="<%= product_path(product) %>" class="btn btn-primary mt-3">購入する</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                  <% end %>
+                 <%= render partial: 'product_card' %>
 
                 </div>
             </div>
