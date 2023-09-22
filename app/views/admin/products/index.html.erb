@@ -1,0 +1,31 @@
+<!-- app/views/admin/products/index.html.erb -->
+<h1>商品一覧</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>商品名</th>
+      <th>説明</th>
+      <th>価格</th>
+      <th>操作</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= product.description %></td>
+        <td><%= product.price %></td>
+        <td>
+          <%= link_to '編集', edit_admin_product_path(product), class: 'btn btn-primary' %>
+          <%= link_to '削除', admin_product_path(product), method: :delete, data: { confirm: '本当に削除しますか?' }, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to '新規商品作成', new_admin_product_path, class: 'btn btn-success' %>
+
+
+
+
