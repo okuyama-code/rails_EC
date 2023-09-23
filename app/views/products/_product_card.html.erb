@@ -3,7 +3,7 @@
 <% @products.each do |product| %>
   <div class="col mb-5">
     <div class="card h-100">
-<%= image_tag product.image, class: "card-img-top img-fluid", style: "width: 200px; height: 200px;", alt: "..." %>
+<%= image_tag product.image, class: "card-img-top img-fluid", style: "width: 90%; height: 100%; object-fit: cover;", alt: "..." %>
 
       <!-- 商品の詳細-->
       <div class="card-body p-4">
