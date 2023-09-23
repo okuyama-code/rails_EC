@@ -11,11 +11,11 @@ class Admin::ProductsController < ApplicationController
   end
 
   def create
-    # 商品を作成するためのコードをここに追加します
     @product = Product.new(product_params)
+    @product.save
     if @product.save
-      redirect_to admin_products_path(@product)
-      
+      redirect_to products_path
+
     else
       render :new
     end
@@ -34,6 +34,10 @@ class Admin::ProductsController < ApplicationController
     end
   end
 
+  def show
+    @product = Product.find(params[:id])
+  end
+
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
@@ -43,6 +47,6 @@ class Admin::ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :price, :stock, :image)
+    params.require(:product).permit(:name, :description, :price, :stock, :image)
   end
 end

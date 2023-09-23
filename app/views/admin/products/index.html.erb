@@ -1,6 +1,5 @@
-<!-- app/views/admin/products/index.html.erb -->
-<h1>商品一覧</h1>
-<table class="table">
+<h1 class="display-4">商品一覧</h1>
+<table class="table table-bordered table-hover">
   <thead>
     <tr>
       <th>商品名</th>
@@ -17,7 +16,7 @@
         <td><%= product.price %></td>
         <td>
           <%= link_to '編集', edit_admin_product_path(product), class: 'btn btn-primary' %>
-          <%= link_to '削除', admin_product_path(product), method: :delete, data: { confirm: '本当に削除しますか?' }, class: 'btn btn-danger' %>
+          <%= button_to '削除', admin_product_path(product), method: :delete, data: { confirm: '本当に削除しますか?' }, class: 'btn btn-danger' %>
         </td>
       </tr>
     <% end %>
@@ -25,7 +24,5 @@
 </table>
 
 <%= link_to '新規商品作成', new_admin_product_path, class: 'btn btn-success' %>
-
-
-
+<%= link_to '商品購入ページへ', "/", class: 'btn btn-success' %>
 

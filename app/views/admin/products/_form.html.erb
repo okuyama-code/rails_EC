@@ -1,33 +1,31 @@
-<!-- app/views/admin/products/_form.html.erb -->
-<%= form_with(model: @product, url: admin_products_path) do |form| %>
-  <% if @product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@product.errors.count, 'エラー') %>が発生しました：</h2>
-      <ul>
-        <% @product.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_with model: @product, url: admin_products_path(@products), method: :post, local: true, data: { turbo: false } do |form| %>
 
-  <div class="form-group">
+  <div class="form-group mb-3">
     <%= form.label :name, '商品名' %>
-    <%= form.text_field :name, class: 'form-control' %>
+    <%= form.text_field :name, class: 'form-control', placeholder: '商品名を入力してください' %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group mb-3">
     <%= form.label :description, '説明' %>
-    <%= form.text_area :description, class: 'form-control' %>
+    <%= form.text_area :description, class: 'form-control', placeholder: '商品の説明を入力してください' %>
   </div>
 
-  <div class="form-group">
+  <div class="form-group mb-3">
     <%= form.label :price, '価格' %>
-    <%= form.number_field :price, class: 'form-control' %>
+    <%= form.number_field :price, class: 'form-control', placeholder: '価格を入力してください(数値)' %>
   </div>
 
-  <div class="actions">
+  <div class="form-group mb-3">
+    <%= form.label :stock, '在庫数' %>
+    <%= form.number_field :stock, class: 'form-control', placeholder: '在庫数を入力してください(数値)' %>
+  </div>
+
+  <div class="form-group mb-3">
+    <%= form.label :image, '写真アップロード' %>
+    <%= form.file_field :image, class: 'form-control' %>
+  </div>
+
+  <div class="form-group mb-3">
     <%= form.submit '保存', class: 'btn btn-primary' %>
   </div>
 <% end %>
-
