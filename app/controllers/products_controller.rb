@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: %i[show edit update]
+  before_action :set_product, only: %i[show edit update show]
 
   def index
     @products = Product.all
@@ -20,6 +20,10 @@ class ProductsController < ApplicationController
 
   def show
     @products = Product.order(created_at: :desc)
+    if @product.nil?
+      flash[:error] = '指定された商品は存在しません。'
+      redirect_to root_path
+    end
   end
 
   def edit; end

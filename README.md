@@ -1,3 +1,28 @@
+## よく使うコマンド
+```
+git checkout main
+```
+```
+git pull origin main --rebase
+```
+
+ブランチの削除
+```
+git branch -D products
+```
+
+```
+git push heroku products-sub:main
+```
+
+```
+http://localhost:3000/rails/info/routes
+```
+
+```
+sudo chmod -R 777 /home/okuyama/rails_ec/
+```
+
 # README
 
 課題用のrailsテンプレートです。
