@@ -1,16 +1,47 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Myapp</title>
+    <title>Rails EC</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
+  <style>
+    .success {
+        font-weight: bold;
+        background-color: lightgreen;
+        padding: 5px;
+      }
+
+      .notice {
+        font-size: 20px;
+        color: #FFFFFF;
+        font-weight: bold;
+        padding: 10px;
+        background-color: blue;
+        text-align: center;
+      }
+
+      .alert {
+        background-color: #FFFF00;
+      }
+
+      .error{
+        color: #FFFFFF;
+        font-weight: bold;
+        background-color: red;
+      }
+
+  </style>
   <body>
-    <%= notice %>
-    <%= alert %>
+
+    <% flash.each do |message_type, message| %>
+            <div class='<%= message_type %>'>
+              <%= message %>
+            </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

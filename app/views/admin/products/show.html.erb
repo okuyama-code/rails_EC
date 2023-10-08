@@ -5,4 +5,4 @@
 <p><strong>価格:</strong> <%= @product.price %></p>
 <%= link_to '編集', edit_admin_product_path(@product), class: 'btn btn-primary' %>
 <%= button_to '削除', admin_product_path(@product), method: :delete, class: 'btn btn-danger' %>
-<%= link_to '一覧に戻る', admin_products_path, class: 'btn btn-secondary' %>
+<%= link_to '一覧に戻る', admin_products_path,  class: 'btn btn-secondary' %>

@@ -7,7 +7,10 @@ Rails.application.routes.draw do
 
   resources :products
 
-  resources :carts
+  get '/my_cart' => 'carts#my_cart'
+  post '/add_item' => 'carts#add_item'
+  post '/update_item' => 'carts#update_item'
+  delete 'delete_item' => 'carts#delete_item'
 
 end
 
