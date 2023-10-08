@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
 
+  # binding.pry
   # helper_method :current_cart
 
   def my_cart
@@ -10,25 +11,30 @@ class CartsController < ApplicationController
 
     pp "デバック"
     pp @cart_id
-    pp
     # データベースからデータを取り出したい →
     # cartテーブルから一件cart_idに対応したcart.idのデータを取り出して@cartに格納する
-    @cart = Cart.find_by(id: @cart_id)
-    pp "デバック"
-    p @cart
+    @cart = Cart.find_by(id: 222)
+    # pp "デバック"
+    # p @cart
 
 
     # @cartが取得できなかった場合、Cartテーブルのレコードを新しく作る. 自信がなかったらrails cで試す
     # nilかfalseならifの記述は実行されない。
     # うまくいかなっかったら@cart.idをpで調べていく
-    if @cart.id
-      p "trueのほう"
-      @cart = Cart.find_by(id: @cart_id)
-    else
-      p "elseのほう"
+    # if @cart
+    #   p "trueのほう"
+    #   @cart = Cart.find_by(id: @cart_id)
+    # else
+    #   p "elseのほう"
+    #   @cart_new = Cart.create
+    # end
+
+    unless @cart
+      p "unlessのほう"
       @cart_new = Cart.create
     end
 
+    # ここから取得できなかった
 
     # 取得できたらviewにproductのname,price
 

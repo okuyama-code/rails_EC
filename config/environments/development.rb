@@ -73,4 +73,6 @@ Rails.application.configure do
   config.web_console.permissions = '0.0.0.0/0'
   Rails.application.routes.default_url_options[:host] = 'localhost'
   Rails.application.routes.default_url_options[:port] = 3000
+
+  BetterErrors::Middleware.allow_ip! "0.0.0.0/0"
 end
