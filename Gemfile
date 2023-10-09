@@ -73,7 +73,7 @@ group :development do
   gem 'web-console'
   gem "better_errors"
   gem "binding_of_caller"
-  # gem 'pry-rails'
+  gem 'pry-rails'
 
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
