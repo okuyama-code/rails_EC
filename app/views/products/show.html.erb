@@ -1,3 +1,8 @@
+ <style>
+    .hidden-field {
+      display: none;
+    }
+ </style>
  <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
@@ -45,7 +50,7 @@
                             <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
 
                             <%= form_with url: cart_items_path, method: :post do  %>
-                                <%= number_field_tag 'product_id', @product.id %>
+                                <%= number_field_tag 'product_id', @product.id, class: 'hidden-field' %>
                                 <%= submit_tag "Add to Cart", class: 'btn btn-primary btn-lg' %>
                             <% end %>
 
