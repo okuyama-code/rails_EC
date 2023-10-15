@@ -43,7 +43,12 @@
                         <p class="lead"><%= @product.description %></p>
                         <div class="d-flex">
                             <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
-                                <%= link_to 'Add to cart', "/my_cart", class: 'btn btn-primary btn-lg'%>
+
+                            <%= form_with url: cart_items_path, method: :post do  %>
+                                <%= number_field_tag 'product_id', @product.id %>
+                                <%= submit_tag "Add to Cart", class: 'btn btn-primary btn-lg' %>
+                            <% end %>
+
                         </div>
                     </div>
                 </div>

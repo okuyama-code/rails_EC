@@ -24,6 +24,7 @@ class ProductsController < ApplicationController
       flash[:error] = '指定された商品は存在しません。'
       redirect_to root_path
     end
+    @cart_item = CartItem.new
   end
 
   def edit; end
