@@ -5,6 +5,7 @@ class CartItemsController < ApplicationController
 
   def create
     increase_or_create(params[:product_id])
+
     redirect_to cart_items_path, notice: "カートの追加に成功しました"
   end
 
@@ -37,8 +38,10 @@ class CartItemsController < ApplicationController
     else
       current_cart.cart_items.build(product_id:).save
     end
-    cart_item.quantity = params[:quantity]
-    cart_item.save
+
+
+
+
   end
 
 end

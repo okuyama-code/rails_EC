@@ -20,7 +20,6 @@
           <a href="<%= product_path(product) %>" class="btn btn-primary mt-3 mb-3">詳細画面へ</a>
           <%= form_with url: cart_items_path, method: :post do  %>
               <%= number_field_tag 'product_id', product.id, class: 'hidden-field' %>
-              <%= number_field_tag 'quantity', 1 , class: 'hidden-field' %>
               <%= submit_tag "Add to Cart", class: 'btn btn-primary' %>
           <% end %>
         </div>
