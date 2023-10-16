@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   resources :cart_items
 
+  post '/cart_items/destroy', to: 'cart_items#destroy'
+
 end
 
 # param: :item_id は、アイテムの識別子（通常、id）の名前を指定しています。ここではitem_id

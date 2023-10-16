@@ -8,8 +8,15 @@ class CartItemsController < ApplicationController
     redirect_to cart_items_path, notice: "カートの追加に成功しました"
   end
 
-  def show
+  def destroy
+    # @cart_items = current_cart.cart_items
+    # @cart_items.destroy_all
+    @cart_item = current_cart.cart_items.find_by(cart_id: session[:cart_id])
+    @cart_item.destroy
+    redirect_to request.referer
   end
+
+
 
   def current_cart
     if session[:cart_id]
