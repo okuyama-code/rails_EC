@@ -37,6 +37,8 @@ class CartItemsController < ApplicationController
     else
       current_cart.cart_items.build(product_id:).save
     end
+    cart_item.quantity = params[:quantity].to_i
+      cart_item.save
   end
 
 end
