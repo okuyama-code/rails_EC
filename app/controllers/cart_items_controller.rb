@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CartItemsController < ApplicationController
   def index
     @cart_items = current_cart.cart_items
@@ -6,7 +8,7 @@ class CartItemsController < ApplicationController
   def create
     increase_or_create(params[:product_id])
 
-    redirect_to cart_items_path, notice: "カートの追加に成功しました"
+    redirect_to cart_items_path, notice: 'カートの追加に成功しました'
   end
 
   def destroy
@@ -16,8 +18,6 @@ class CartItemsController < ApplicationController
     @cart_item.destroy
     redirect_to request.referer
   end
-
-
 
   def current_cart
     if session[:cart_id]
@@ -34,14 +34,10 @@ class CartItemsController < ApplicationController
   def increase_or_create(product_id)
     cart_item = current_cart.cart_items.find_by(product_id:)
     if cart_item
-      cart_item.increment!(:quantity, 1)
+      # cart_item.increment!(:quantity, 1)
+      cart_item.update(quantity: cart_item.quantity + 1)
     else
       current_cart.cart_items.build(product_id:).save
     end
-
-
-
-
   end
-
 end

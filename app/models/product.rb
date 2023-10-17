@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Product < ApplicationRecord
   with_options presence: true do
     validates :name
@@ -10,7 +12,7 @@ class Product < ApplicationRecord
   has_one_attached :image
 
   # 1つの商品は複数のカートアイテム（カートとの結びつき）を持つ
-  has_many :cart_items
+  has_many :cart_items, dependent: :destroy
   # 1つの商品は複数のカートを持つ（カートアイテムを介して）
   has_many :carts, through: :cart_items
 end
