@@ -1,6 +1,4 @@
-
-
- <div class="text-center mt-3">
+<div class="text-center mt-3">
     <%= link_to 'さらに商品をカートへ追加する', root_path, class: 'btn btn-primary' %>
     <p>現在のsession[:cart_id]は <%= session[:cart_id] %></p>
   </div>
@@ -15,20 +13,20 @@
         <div class="col-md-4 order-md-2 mb-4">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
                 <span class="text-muted">Your cart</span>
-                <% if @cart_items.find_by(cart_id: session[:cart_id]) %>
-                    <span><%= button_to 'カートを削除', cart_items_destroy_path, method: :delete, class: 'btn btn-danger' %></span>
+                <% if @cart_products.find_by(cart_id: session[:cart_id]) %>
+                    <span><%= button_to 'カートを削除', cart_products_destroy_path, method: :delete, class: 'btn btn-danger' %></span>
                 <% end %>
             </h4>
 
     <div class="col-md-8 order-md-1">
       <ul class="list-group mb-3 sticky-top">
-        <% @cart_items.each do |cart_item| %>
+        <% @cart_products.each do |cart_product| %>
           <li class="list-group-item d-flex justify-content-between lh-condensed">
             <div>
-              <h6 class="my-0"><%= cart_item.product.name %></h6>
-              <small class="text-muted">個数: <%= cart_item.quantity %></small>
+              <h6 class="my-0"><%= cart_product.product.name %></h6>
+              <small class="text-muted">個数: <%= cart_product.quantity %></small>
             </div>
-            <span class="text-muted"><%= number_to_currency(cart_item.product.price, unit: "¥", strip_insignificant_zeros: true ) %></span>
+            <span class="text-muted"><%= number_to_currency(cart_product.product.price, unit: "¥", strip_insignificant_zeros: true ) %></span>
           </li>
         <% end %>
 

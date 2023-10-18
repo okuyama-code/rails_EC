@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class CreateCartItems < ActiveRecord::Migration[7.0]
+class CreateCartProducts < ActiveRecord::Migration[7.0]
   def change
-    create_table :cart_items do |t|
+    create_table :cart_products do |t|
       t.references :cart, null: false, foreign_key: true
       t.references :product, null: false, foreign_key: true
       t.integer :quantity, null: false, default: 1

@@ -9,10 +9,10 @@ Rails.application.routes.draw do
 
   resources :products
 
-  resources :cart_items
+  resources :cart_products
 
-  post '/cart_items/destroy', to: 'cart_items#destroy'
+  post '/cart_products/destroy', to: 'cart_products#destroy'
 end
 
 # param: :item_id は、アイテムの識別子（通常、id）の名前を指定しています。ここではitem_id
-# controller: :cart_items は、itemsリソース内のアクションを処理するために CartItemsController という名前のコントローラーを使用することを示す
+# controller: :cart_products は、itemsリソース内のアクションを処理するために CartProductsController という名前のコントローラーを使用することを示す

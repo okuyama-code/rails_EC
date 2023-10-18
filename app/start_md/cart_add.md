@@ -23,10 +23,10 @@ https://bluebirdofoz.hatenablog.com/entry/2020/11/21/222711
 
 - [ ] ２．ホーム画面でカートに商品を1つ追加する
   ```
-  # カート明細テーブル（CartItems）データを1件作成する
+  # カート明細テーブル（CartProducts）データを1件作成する
     # あらかじめカート必要だね→1であらかじめやっとくか
     # insert文。→操作するテーブルわからないと書けなくね？
-    # CartItems.create()使うんだろうな。
+    # CartProducts.create()使うんだろうな。
   ```
 
 - [ ] ３．カートボタンを押す

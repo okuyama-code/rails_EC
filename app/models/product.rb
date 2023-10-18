@@ -12,9 +12,9 @@ class Product < ApplicationRecord
   has_one_attached :image
 
   # 1つの商品は複数のカートアイテム（カートとの結びつき）を持つ
-  has_many :cart_items, dependent: :destroy
+  has_many :cart_products, dependent: :destroy
   # 1つの商品は複数のカートを持つ（カートアイテムを介して）
-  has_many :carts, through: :cart_items
+  has_many :carts, through: :cart_products
 end
 
-# through: :cart_items の部分が重要で、これにより、カートと商品はカートアイテムを介して関連付けられ、cartモデルから直接productモデルにアクセスできます。
+# through: :cart_products の部分が重要で、これにより、カートと商品はカートアイテムを介して関連付けられ、cartモデルから直接productモデルにアクセスできます。

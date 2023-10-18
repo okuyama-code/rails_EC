@@ -49,7 +49,7 @@
                         <div class="d-flex">
                             <%# <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" /> %>
 
-                            <%= form_with url: cart_items_path, method: :post do  %>
+                            <%= form_with url: cart_products_path, method: :post do  %>
                                 <%= number_field_tag 'product_id', @product.id, class: 'hidden-field' %>
                                 <%= submit_tag "Add to Cart", class: 'btn btn-primary btn-lg' %>
                             <% end %>
