@@ -1,3 +1,8 @@
+ <style>
+    .hidden-field {
+      display: none;
+    }
+ </style>
  <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-5">
@@ -31,7 +36,9 @@
         <section class="py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="row gx-4 gx-lg-5 align-items-center">
-                    <div class="col-md-6"><%= image_tag @product.image, class: "card-img-top img-fluid h-100", alt: "..." %></div>
+                    <div class="col-md-6">
+                    <%= image_tag @product.image, class: "card-img-top img-fluid h-100", alt: "..." %>
+                    </div>
                     <div class="col-md-6">
                         <div class="small mb-1">SKU: BST-498</div>
                         <h1 class="display-5 fw-bolder"><%= @product.name %></h1>
@@ -40,11 +47,13 @@
                         </div>
                         <p class="lead"><%= @product.description %></p>
                         <div class="d-flex">
-                            <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" />
-                            <button class="btn btn-outline-dark flex-shrink-0" type="button">
-                                <i class="bi-cart-fill me-1"></i>
-                                Add to cart
-                            </button>
+                            <%# <input class="form-control text-center me-3" id="inputQuantity" type="num" value="1" style="max-width: 3rem" /> %>
+
+                            <%= form_with url: cart_products_path, method: :post do  %>
+                                <%= number_field_tag 'product_id', @product.id, class: 'hidden-field' %>
+                                <%= submit_tag "Add to Cart", class: 'btn btn-primary btn-lg' %>
+                            <% end %>
+
                         </div>
                     </div>
                 </div>

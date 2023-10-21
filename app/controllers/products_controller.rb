@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ProductsController < ApplicationController
-  before_action :set_product, only: %i[show edit update]
+  before_action :set_product, only: %i[show edit update show]
 
   def index
     @products = Product.all
@@ -20,13 +22,18 @@ class ProductsController < ApplicationController
 
   def show
     @products = Product.order(created_at: :desc)
+    if @product.nil?
+      flash[:error] = '指定された商品は存在しません。'
+      redirect_to root_path
+    end
+    @cart_product = CartProduct.new
   end
 
   def edit; end
 
   def update
     if @product.update(product_params)
-      redirect_to products_path(@product)
+      redirect_to products_path(@product), notice: 'Product was successfully updated.'
     else
       render :edit
     end

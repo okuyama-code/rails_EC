@@ -1,8 +1,18 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
+  root 'products#index'
+
   namespace :admin do
-   resources :products
+    resources :products
   end
-  root "products#index"
 
   resources :products
+
+  resources :cart_products
+
+  post '/cart_products/destroy', to: 'cart_products#destroy'
 end
+
+# param: :item_id は、アイテムの識別子（通常、id）の名前を指定しています。ここではitem_id
+# controller: :cart_products は、itemsリソース内のアクションを処理するために CartProductsController という名前のコントローラーを使用することを示す
