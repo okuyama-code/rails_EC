@@ -101,11 +101,11 @@
                         </select>
                         <div class="invalid-feedback"> Please provide a valid state. </div>
                     </div>
-                    <div class="col-md-3 mb-3">
+                    <%# <div class="col-md-3 mb-3">
                         <label for="zip">Zip</label>
                         <input type="text" class="form-control" id="zip" placeholder="" required="">
                         <div class="invalid-feedback"> Zip code required. </div>
-                    </div>
+                    </div> %>
                 </div>
                 <hr class="mb-4">
                 <div class="custom-control custom-checkbox">
@@ -121,33 +121,26 @@
                 <div class="d-block my-3">
                     <div class="custom-control custom-radio">
                         <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">
-                        <label class="custom-control-label" for="credit">Credit card</label>
+                        <label class="custom-control-label" for="credit">クレジットカード</label>
                     </div>
-                    <div class="custom-control custom-radio">
-                        <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required="">
-                        <label class="custom-control-label" for="debit">Debit card</label>
-                    </div>
-                    <div class="custom-control custom-radio">
-                        <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required="">
-                        <label class="custom-control-label" for="paypal">PayPal</label>
-                    </div>
+
                 </div>
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="cc-name">Name on card</label>
+                        <label for="cc-name">カードの名義</label>
                         <input type="text" class="form-control" id="cc-name" placeholder="" required="">
-                        <small class="text-muted">Full name as displayed on card</small>
+                        <small class="text-muted">カードに表示されるフルネーム</small>
                         <div class="invalid-feedback"> Name on card is required </div>
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label for="cc-number">Credit card number</label>
+                        <label for="cc-number">カード番号</label>
                         <input type="text" class="form-control" id="cc-number" placeholder="" required="">
                         <div class="invalid-feedback"> Credit card number is required </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-3 mb-3">
-                        <label for="cc-expiration">Expiration</label>
+                        <label for="cc-expiration">有効期限</label>
                         <input type="text" class="form-control" id="cc-expiration" placeholder="" required="">
                         <div class="invalid-feedback"> Expiration date required </div>
                     </div>
@@ -158,7 +151,7 @@
                     </div>
                 </div>
                 <hr class="mb-4">
-                <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+                <button class="btn btn-primary btn-lg btn-block" type="submit">購入する</button>
             </form>
         </div>
     </div>
