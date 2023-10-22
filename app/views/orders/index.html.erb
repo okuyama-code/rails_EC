@@ -1,2 +1,29 @@
 <h1>orders_pathです</h1>
 <%= link_to "商品一覧ページへ", root_path, class: 'btn btn-primary' %>
+<div class="container">
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th>Order番号</th>
+        <th>ユーザー名</th>
+        <th>メールアドレス</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <td><%= link_to order.id, order_path(order) %></td>
+          <td>
+            <%= link_to order.username, order_path(order) %>
+          </td>
+          <td>
+            <%= order.email %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
