@@ -8,6 +8,13 @@ class OrdersController < ApplicationController
   end
 
   def create
+    @order = Order.new(order_params)
+    if @order.save
+      redirect_to orders_path, notice: "購入者の情報をordersテーブルに保存しました"
+    else
+      alert: "DBにデータを追加するのに失敗しています。空欄はありませんか？すべてのフォームに入力してください"
+      render template: "cart_products/index"
+    end
 
   end
 
