@@ -50,7 +50,7 @@
         <%# =========== ordersのform============= %>
         <div class="col-md-8 order-md-1">
             <h4 class="mb-3">請求先住所</h4>
-            <%= form_with model: @order, method: :post, local: true, data: { turbo: false } do |f|  %>
+            <%= form_with model: @order, url: orders_path,method: :post, local: true, data: { turbo: false } do |f|  %>
 
                 <div class="row">
                     <div class="col-md-6 mb-3">
@@ -99,27 +99,22 @@
                         <%= f.text_field :prefecture, class: "form-control", :placeholder => "宮城県" %>
                         <div class="invalid-feedback"> Please provide a valid state. </div>
                     </div>
-                    <%# <div class="col-md-3 mb-3">
-                        <label for="zip">Zip</label>
-                        <input type="text" class="form-control" id="zip" placeholder="" required="">
-                        <div class="invalid-feedback"> Zip code required. </div>
-                    </div> %>
                 </div>
                 <hr class="mb-4">
                 <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="same-address">
+
                     <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
                 </div>
                 <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="save-info">
+
                     <label class="custom-control-label" for="save-info">Save this information for next time</label>
                 </div>
                 <hr class="mb-4">
                 <h4 class="mb-3">Payment</h4>
                 <div class="d-block my-3">
                     <div class="custom-control custom-radio">
-                        <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">
-                        <label class="custom-control-label" for="credit">クレジットカード</label>
+
+                        クレジットカード
                     </div>
 
                 </div>
@@ -149,7 +144,7 @@
                     </div>
                 </div>
                 <hr class="mb-4">
-                <button class="btn btn-primary btn-lg btn-block" type="submit">購入する</button>
+                <%= f.submit "購入する",  class:"btn btn-primary btn-lg btn-block" %>
             <% end %>
         </div>
     </div>

@@ -16,6 +16,7 @@ class Product < ApplicationRecord
   # 1つの商品は複数のカートを持つ（カートアイテムを介して）
   has_many :carts, through: :cart_products
   has_many :order_products, dependent: :destroy
+  has_many :orders, through: :order_products
 end
 
 # through: :cart_products の部分が重要で、これにより、カートと商品はカートアイテムを介して関連付けられ、cartモデルから直接productモデルにアクセスできます。
