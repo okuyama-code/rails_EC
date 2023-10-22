@@ -5,4 +5,5 @@ class Cart < ApplicationRecord
   has_many :cart_products, dependent: :destroy
   # 1つのカートは複数の商品を持つ（カートアイテムを介して）
   has_many :products, through: :cart_products
+  has_many :orders, dependent: :destroy
 end

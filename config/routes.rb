@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   end
 
   resources :products
-
   resources :cart_products
+  resources :orders, only: [:index, :show, :create]
 
   post '/cart_products/destroy', to: 'cart_products#destroy'
 end
