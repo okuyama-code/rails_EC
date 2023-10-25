@@ -2,6 +2,10 @@
 
 Rails.application.routes.draw do
   root 'products#index'
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+
 
   namespace :admin do
     resources :products

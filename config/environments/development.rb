@@ -40,7 +40,7 @@ Rails.application.configure do
   # config.active_storage.service = :amazon
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
 
@@ -75,4 +75,7 @@ Rails.application.configure do
   Rails.application.routes.default_url_options[:port] = 3000
 
   BetterErrors::Middleware.allow_ip! '0.0.0.0/0'
+  ActionMailer::Base.delivery_method = :letter_opener_web
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_url_options = { host: 'localhost:3000' }
 end
