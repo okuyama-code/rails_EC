@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="6PxwTYDyCNUQoYov9v6v" name="ページ1">
-        <mxGraphModel dx="1198" dy="427" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="558" dy="427" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -9,7 +9,7 @@
                         <mxPoint x="240" y="190" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="5" value="orders&lt;br&gt;購入者の情報&lt;br&gt;1" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="5" value="orders&lt;br&gt;購入者の情報&lt;br&gt;1&lt;br&gt;cart_id FK" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="20" y="155" width="120" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="10" value="" style="edgeStyle=none;html=1;" parent="1" source="8" target="9" edge="1">
@@ -21,39 +21,36 @@
                 <mxCell id="9" value="products&amp;nbsp;&lt;br&gt;1" style="whiteSpace=wrap;html=1;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="460" y="150" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="13" value="" style="html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="2">
+                <mxCell id="13" value="" style="html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="2" edge="1">
                     <mxGeometry width="100" relative="1" as="geometry">
                         <mxPoint x="140" y="170" as="sourcePoint"/>
                         <mxPoint x="170" y="180" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="15" value="" style="edgeStyle=none;html=1;endArrow=none;" edge="1" parent="1" source="5" target="2">
+                <mxCell id="15" value="" style="edgeStyle=none;html=1;endArrow=none;" parent="1" source="5" target="2" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="240" y="190" as="targetPoint"/>
                         <mxPoint x="140" y="186.875" as="sourcePoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="2" value="&amp;nbsp;carts&lt;br&gt;1&lt;br&gt;order_idがいる？" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="2" value="&amp;nbsp;carts&lt;br&gt;1&lt;br&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="160" y="155" width="120" height="65" as="geometry"/>
                 </mxCell>
-                <mxCell id="16" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1">
+                <mxCell id="16" value="" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" edge="1">
                     <mxGeometry width="100" relative="1" as="geometry">
                         <mxPoint x="280" y="190" as="sourcePoint"/>
                         <mxPoint x="300" y="190" as="targetPoint"/>
                         <Array as="points"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="17" value="ordersとcartsのどっちがbelongs_toでどっちがhas_one??&lt;br&gt;cart has one order??(こっち？)&lt;br&gt;order has one cart??" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-                    <mxGeometry x="84" y="220" width="330" height="60" as="geometry"/>
+                <mxCell id="21" value="&lt;p&gt;orderレコードはcartなしではあり得ない。orderはcartに依存する。&lt;/p&gt;cartレコードはorderなしであり得る。cartはorderに依存しない。&lt;br&gt;なので、orderにcart_idをもたせる&lt;br&gt;&lt;br&gt;&lt;p&gt;&lt;/p&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="70" y="205" width="380" height="110" as="geometry"/>
                 </mxCell>
-                <mxCell id="18" value="&lt;span style=&quot;color: rgb(63, 63, 63); font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Helvetica Neue&amp;quot;, &amp;quot;Hiragino Sans&amp;quot;, &amp;quot;Hiragino Kaku Gothic ProN&amp;quot;, &amp;quot;游ゴシック Medium&amp;quot;, meiryo, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;自身が他のテーブルをたどるキーを所持している場合は、&lt;/span&gt;&lt;code style=&quot;font-family: Monaco, Consolas, &amp;quot;Courier New&amp;quot;, Courier, monospace, sans-serif; font-size: 13.5px; margin: 0px 2px; padding: 0px 5px; border: 1px solid rgb(234, 234, 234); background-color: rgb(248, 248, 248); border-radius: 3px; color: rgb(63, 63, 63); text-align: start;&quot;&gt;belongs_to&lt;br&gt;&lt;/code&gt;&lt;span style=&quot;color: rgb(63, 63, 63); font-family: -apple-system, BlinkMacSystemFont, &amp;quot;Helvetica Neue&amp;quot;, &amp;quot;Hiragino Sans&amp;quot;, &amp;quot;Hiragino Kaku Gothic ProN&amp;quot;, &amp;quot;游ゴシック Medium&amp;quot;, meiryo, sans-serif; font-size: 15px; text-align: start; background-color: rgb(255, 255, 255);&quot;&gt;&amp;nbsp;自身が他のテーブルからたどるキーで示されている場合は、&lt;/span&gt;&lt;code style=&quot;font-family: Monaco, Consolas, &amp;quot;Courier New&amp;quot;, Courier, monospace, sans-serif; font-size: 13.5px; margin: 0px 2px; padding: 0px 5px; border: 1px solid rgb(234, 234, 234); background-color: rgb(248, 248, 248); border-radius: 3px; color: rgb(63, 63, 63); text-align: start;&quot;&gt;has_one&lt;/code&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-                    <mxGeometry x="30" y="280" width="500" height="50" as="geometry"/>
+                <mxCell id="22" value="has_oneの関係&lt;br&gt;order belongs to cart&amp;nbsp;&lt;br&gt;cart has one order&lt;br&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="80" y="90" width="140" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="19" value="ordersテーブルからproductsテーブルを参照したいから、&lt;br&gt;経由地点のcart_idがいる？&lt;br&gt;親がどっちかもあいまい。。" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-                    <mxGeometry x="100" y="390" width="330" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="20" value="has_oneの次の記述のほうに外部キーがあるっぽい&lt;br&gt;ということはcartsにorder_idが必要？" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
-                    <mxGeometry x="114" y="340" width="300" height="40" as="geometry"/>
+                <mxCell id="24" value="cartにorder_idもたせるとnot null制約つけられない&lt;br&gt;orderにcart_idつければnot null制約つけられない" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="100" y="290" width="290" height="40" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>

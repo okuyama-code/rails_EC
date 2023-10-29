@@ -13,7 +13,7 @@ class CreateOrders < ActiveRecord::Migration[7.0]
       t.string :credit_card_number, null: false
       t.string :credit_card_expiration, null: false
       t.string :credit_card_cvv, null: false
-      # t.references :cart, null: false, foreign_key: true
+      t.references :cart, null: false, foreign_key: true
 
       t.timestamps
     end
