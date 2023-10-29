@@ -3,7 +3,8 @@ class Order < ApplicationRecord
   # デフォルトでは、Post.allは削除されたレコードも含めて返す。この挙動を変えて削除されていないものだけ返すようにする
   # default_scope -> { kept }
 
-  belongs_to :cart
+  #TODO cartsテーブルがorder_idを持つ？　
+  has_one :cart, dependent: :destroy
   has_many :order_products, dependent: :destroy
   has_many :products, through: :order_products
 end
