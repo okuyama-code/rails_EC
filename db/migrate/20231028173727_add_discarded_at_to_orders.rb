@@ -4,3 +4,5 @@ class AddDiscardedAtToOrders < ActiveRecord::Migration[7.0]
     add_index :orders, :discarded_at
   end
 end
+
+# TODO このファイルを消してrails db:migrate:resetするかも rails db:seedしてorderにformからデータを入れなおす。
