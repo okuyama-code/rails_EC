@@ -2,3 +2,12 @@
 
 <h2>注文番号： <%= @order.id %></h2>
 <h2>ユーザー名：<%= @order.username %></h2>
+<p><%= @order.cart.cart_products.first.product.name%></p>
+
+<% @order.cart.cart_products.each do |cart_product| %>
+  <h2><%= cart_product.product.name %></h2>
+  <h2><%= cart_product.product.price %>円</h2>
+<% end %>
+
+<%=  link_to "homeへ", root_path %>
+<%= link_to "http://localhost:3000/letter_opener" , "/letter_opener" %>

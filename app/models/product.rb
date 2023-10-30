@@ -15,8 +15,11 @@ class Product < ApplicationRecord
   has_many :cart_products, dependent: :destroy
   # 1つの商品は複数のカートを持つ（カートアイテムを介して）
   has_many :carts, through: :cart_products
-  has_many :order_products, dependent: :destroy
-  has_many :orders, through: :order_products
+
+  include Discard::Model
+  # デフォルトでは、Post.allは削除されたレコードも含めて返す。この挙動を変えて削除されていないものだけ返すようにする
+  # default_scope -> { kept }
+
 end
 
 # through: :cart_products の部分が重要で、これにより、カートと商品はカートアイテムを介して関連付けられ、cartモデルから直接productモデルにアクセスできます。
