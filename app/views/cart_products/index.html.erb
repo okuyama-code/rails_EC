@@ -1,4 +1,7 @@
-
+<div class="text-center">
+    <%= link_to 'さらに商品をカートへ追加する', root_path, class: 'btncss' %>
+    <h3>現在のsession[:cart_id]は <span class="session"><%= session[:cart_id] %></span> です</h3>
+</div>
 
 <div class="container">
     <div class="py-5 text-center">
@@ -41,10 +44,6 @@
                     </div>
                 </div>
             </form>
-        </div>
-        <div class="text-center mt-3">
-            <%= link_to 'さらに商品をカートへ追加する', root_path, class: 'btn btn-primary' %>
-            <p>現在のsession[:cart_id]は <%= session[:cart_id] %></p>
         </div>
 
         <%# =========== ordersのform============= %>

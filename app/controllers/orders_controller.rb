@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   # Basic認証
   #TODO http_basic_authenticate_with name: 'admin', password: 'pw'　
-  
+
   def index
     @orders = Order.all
   end
@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
       redirect_to orders_path, notice: "購入者の情報をordersテーブルに保存しました"
       # redirect_to root_path, notice: "ご購入ありがとうございます。"
       # @order.cart.cart_products.all
-
+      session[:cart_id] = nil
     else
       flash[:notice] = "DBにデータを追加するのに失敗しています。空欄はありませんか？すべてのフォームに入力してください"
       render template: "cart_products/index"
