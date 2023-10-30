@@ -2,7 +2,7 @@
     .hidden-field {
       display: none;
     }
- </style>
+    </style>
     <body>
         <%# <!-- Navigation-->  %>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -43,12 +43,11 @@
             </div>
         </header>
         <!-- Section-->
-        <div class="text-center mt-3">
-            <%= link_to '管理者画面へ', "/admin/products", class: 'btn btn-primary btn-lg' %>
-        </div>
-
-        <div class="text-center mt-3">
-            <%= link_to "http://localhost:3000/letter_opener" , "/letter_opener", class: 'btn btn-primary btn-lg' %>
+        <div class="link-flex">
+            <%= link_to '管理者画面へ', "/admin/products", class: 'btncss' %>
+            <%= link_to "http://localhost:3000/letter_opener" , "/letter_opener", class: 'btncss' %>
+            <%= link_to "http://localhost:3000/letter_opener" , "/letter_opener", class: 'btncss' %>
+            <%=  link_to "orderページへ", orders_path, class: 'btncss' %>
         </div>
 
 

@@ -1,6 +1,4 @@
-<h1>orders_pathです</h1>
-<%= link_to "商品一覧ページへ", root_path, class: 'btn btn-primary' %>
-<div class="container">
+<div class="container mt-5">
   <table class="table table-bordered">
     <thead class="thead-dark">
       <tr>
@@ -13,9 +11,9 @@
     <tbody>
       <% @orders.each do |order| %>
         <tr>
-          <td><%= link_to order.id, order_path(order) %></td>
+          <td><%= link_to order.id, order_path(order) %>(詳細ページへ)</td>
           <td>
-            <%= link_to order.username, order_path(order) %>
+            <%= link_to order.username, order_path(order) %>(ボタンです)
           </td>
           <td>
             <%= order.email %>
@@ -26,4 +24,9 @@
   </table>
 </div>
 
-<%= link_to "http://localhost:3000/letter_opener" , "/letter_opener" %>
+<div class="link-flex mt-5">
+    <%=  link_to "homeへ", root_path, class: 'btncss' %>
+    <%= link_to '管理者画面へ', "/admin/products", class: 'btncss' %>
+    <%= link_to "http://localhost:3000/letter_opener" , "/letter_opener", class: 'btncss' %>
+    <%= link_to "http://localhost:3000/letter_opener" , "/letter_opener", class: 'btncss' %>
+</div>

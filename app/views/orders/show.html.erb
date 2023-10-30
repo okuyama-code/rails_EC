@@ -1,13 +1,46 @@
-<h1>Order詳細ページ</h1>
+<div class="link-flex">
+  <%=  link_to "homeへ", root_path, class: 'btncss' %>
+  <%= link_to "http://localhost:3000/letter_opener" , "/letter_opener", class: 'btncss' %>
+  <%=  link_to "order一覧ページへ戻る", orders_path, class: 'btncss' %>
+</div>
 
-<h2>注文番号： <%= @order.id %></h2>
-<h2>ユーザー名：<%= @order.username %></h2>
-<p><%= @order.cart.cart_products.first.product.name%></p>
+<div class="order-center">
+  <h2>購入者情報</h2>
+  <div class="order-border-info">
+    <h4>ユーザー名 : @<%= @order.username %></h4>
+    <h4>Email : <%= @order.email %></h4>
+  </div>
+</div>
 
-<% @order.cart.cart_products.each do |cart_product| %>
-  <h2><%= cart_product.product.name %></h2>
-  <h2><%= cart_product.product.price %>円</h2>
-<% end %>
 
-<%=  link_to "homeへ", root_path %>
-<%= link_to "http://localhost:3000/letter_opener" , "/letter_opener" %>
+<div class="order-center">
+  <h2>注文情報</h2>
+  <div class="order-border-info">
+    <p class="font-bold">注文番号: <%= @order.id %></p>
+    <% @order.cart.cart_products.each do |cart_product| %>
+      <p class="order-product-info"><%= cart_product.product.name %><br />
+      商品一つ当たりの価格 : <%= cart_product.product.price %>円<br />
+      購入した個数 : <%= cart_product.quantity  %></p>
+    <% end %>
+  </div>
+</div>
+
+<div class="order-center">
+  <h2>お支払情報</h2>
+  <div class="order-border-main">
+    <div class="order-border">
+      <h4>クレジットカード番号</h4>
+      <p><%= @order.credit_card_number %></p>
+      <p>一括払い</p>
+    </div>
+    <div class="order-address">
+      <h4>請求先住所</h4>
+      <p><%= @order.address %></p>
+      <p><%= @order.email %></p>
+    </div>
+  </div>
+</div>
+
+
+
+
