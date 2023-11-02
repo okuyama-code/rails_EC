@@ -93,4 +93,5 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  config.action_mailer.default_url_options = { protocol: 'https', host:'peaceful-waters-90263-196a9ea53a5c.herokuapp.com'}
 end
