@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
-  # Basic認証
-  #TODO http_basic_authenticate_with name: 'admin', password: 'pw'　
+  # Basic認証を有効化します
+  http_basic_authenticate_with name: 'admin', password: 'pw'
 
   def index
     @orders = Order.all

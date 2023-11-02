@@ -17,8 +17,7 @@ class Product < ApplicationRecord
   has_many :carts, through: :cart_products
 
   include Discard::Model
-  # デフォルトでは、Post.allは削除されたレコードも含めて返す。この挙動を変えて削除されていないものだけ返すようにする
-  # default_scope -> { kept }
+  
 
 end
 
