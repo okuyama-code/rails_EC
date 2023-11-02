@@ -3,7 +3,7 @@
 module Admin
   class ProductsController < ApplicationController
     # Basic認証を有効化します
-    http_basic_authenticate_with name: 'admin', password: 'pw'
+    http_basic_authenticate_with name: 'admin', password: 'pw', only: :index
 
     def index
       @products = Product.kept
