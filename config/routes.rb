@@ -2,10 +2,7 @@
 
 Rails.application.routes.draw do
   root 'products#index'
-  if Rails.env.development?
-    mount LetterOpenerWeb::Engine, at: "/letter_opener"
-  end
-
+  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 
   namespace :admin do
     resources :products
@@ -13,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :products
   resources :cart_products
-  resources :orders, only: [:index, :show, :create]
+  resources :orders, only: %i[index show create]
 
   post '/cart_products/destroy', to: 'cart_products#destroy'
 end

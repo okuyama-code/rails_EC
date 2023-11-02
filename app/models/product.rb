@@ -17,8 +17,6 @@ class Product < ApplicationRecord
   has_many :carts, through: :cart_products
 
   include Discard::Model
-  
-
 end
 
 # through: :cart_products の部分が重要で、これにより、カートと商品はカートアイテムを介して関連付けられ、cartモデルから直接productモデルにアクセスできます。

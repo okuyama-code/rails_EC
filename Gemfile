@@ -67,6 +67,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'htmlbeautifier'
+  gem 'letter_opener_web'
   gem 'pry-rails'
   gem 'rails_best_practices'
   gem 'rubocop', require: false
@@ -74,7 +75,6 @@ group :development do
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
   gem 'web-console'
-  gem 'letter_opener_web'
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"

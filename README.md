@@ -16,6 +16,10 @@ git push heroku products-sub:main
 ```
 
 ```
+git push heroku order:main
+```
+
+```
 http://localhost:3000/rails/info/routes
 ```
 
