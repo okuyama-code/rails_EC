@@ -1,6 +1,21 @@
-<%= @order.email %>
-<h1>
-  <%= @order.username %>様
-</h1>
+<h2>購入者情報</h2>
 
+<h4>ユーザー名 : @<%= @order.username %></h4>
+<h4>Email : <%= @order.email %></h4>
 
+<h2>注文情報</h2>
+<p class="font-bold">注文番号: <%= @order.id %></p>
+<% @order.cart.cart_products.each do |cart_product| %>
+  <p class="order-product-info"><%= cart_product.product.name %><br />
+  商品一つ当たりの価格 : <%= cart_product.product.price %>円<br />
+  購入した個数 : <%= cart_product.quantity  %></p>
+<% end %>
+
+<h2>お支払情報</h2>
+<h4>クレジットカード番号</h4>
+<p><%= @order.credit_card_number %></p>
+<p>一括払い</p>
+
+<h4>請求先住所</h4>
+<p><%= @order.address %></p>
+<p><%= @order.email %></p>
