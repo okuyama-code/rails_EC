@@ -59,4 +59,5 @@ Rails.application.configure do
 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
+  config.action_mailer.default_url_options = { protocol: 'https', host:'https://peaceful-waters-90263-196a9ea53a5c.herokuapp.com/'}
 end

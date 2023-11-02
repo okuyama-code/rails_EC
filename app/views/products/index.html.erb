@@ -48,7 +48,6 @@
             <% if session[:cart_id] %>
                 <%=  link_to "カートページへ", cart_products_path, class: 'btncss' %>
             <% end%>
-            <%= link_to "メール確認" , "/letter_opener", class: 'btncss' %>
             <%=  link_to "orderページへ", orders_path, class: 'btncss' %>
         </div>
 

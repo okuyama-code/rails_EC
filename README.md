@@ -1,3 +1,4 @@
+<%= link_to "メール確認" , "/letter_opener", class: 'btncss' %>
 ## よく使うコマンド
 ```
 git checkout main
