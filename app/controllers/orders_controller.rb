@@ -46,4 +46,12 @@ class OrdersController < ApplicationController
       cart_id: session[:cart_id]
     }
   end
+
+  # def order_params
+  #   params.require(:order).permit(
+  #     :first_name, :last_name, :username,
+  #     :email, :address, :address2, :country, :prefecture,
+  #     :credit_card_name, :credit_card_number, :credit_card_expiration, :credit_card_cvv, :cart_id
+  #   ).merge(cart_id: session[:cart_id])
+  # end
 end
