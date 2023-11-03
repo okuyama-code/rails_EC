@@ -63,7 +63,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_29_035439) do
     t.string "username", null: false
     t.string "email", null: false
     t.string "address", null: false
-    t.string "address_2"
+    t.string "address2"
     t.string "country", null: false
     t.string "prefecture", null: false
     t.string "credit_card_name", null: false

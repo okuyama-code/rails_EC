@@ -30,7 +30,7 @@ sudo chmod -R 777 /home/okuyama/rails_ec/
 
 heroku run rails db:migrate
 
-https://peaceful-waters-90263-196a9ea53a5c.herokuapp.com/ deployed to Heroku
+https://peaceful-waters-90263-196a9ea53a5c.herokuapp.com/ 
 
 # README
 

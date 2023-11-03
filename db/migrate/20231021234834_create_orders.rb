@@ -8,7 +8,7 @@ class CreateOrders < ActiveRecord::Migration[7.0]
       t.string :username, null: false
       t.string :email, null: false
       t.string :address, null: false
-      t.string :address_2
+      t.string :address2
       t.string :country, null: false
       t.string :prefecture, null: false
       t.string :credit_card_name, null: false

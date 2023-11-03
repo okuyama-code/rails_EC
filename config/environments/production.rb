@@ -94,17 +94,18 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { protocol: 'https', host:'peaceful-waters-90263-196a9ea53a5c.herokuapp.com'}
+  config.action_mailer.default_url_options = { protocol: 'https',
+                                               host: 'peaceful-waters-90263-196a9ea53a5c.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-  address:              'smtp.gmail.com',
-  enable_starttls_auto: true,
-  port:                 587,
-  domain:               'gmail.com',
-  user_name:        'ooyy0121@gmail.com',
-  password:         'egjc ihty dgvg byhj',
-  authentication:       :plain
+    address: 'smtp.gmail.com',
+    enable_starttls_auto: true,
+    port: 587,
+    domain: 'gmail.com',
+    user_name: 'ooyy0121@gmail.com',
+    password: 'egjc ihty dgvg byhj',
+    authentication: :plain
   }
 end
 
-# TODO https://blog.f-arts.work/archives/653
+# TODO: https://blog.f-arts.work/archives/653
