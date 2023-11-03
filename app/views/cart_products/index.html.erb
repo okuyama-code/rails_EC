@@ -52,7 +52,7 @@
         <%# =========== ordersのform============= %>
         <div class="col-md-8 order-md-1">
             <h4 class="mb-3">請求先住所</h4>
-            <%= form_with model: @order, url: orders_path,method: :post, local: true, data: { turbo: false } do |f|  %>
+            <%= form_with model: @order, url: orders_path, method: :post, local: true, data: { turbo: false } do |f|  %>
 
                 <div class="row">
                     <div class="col-md-6 mb-3">

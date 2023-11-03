@@ -3,6 +3,7 @@
 class OrdersController < ApplicationController
   # Basic認証を有効化します
   http_basic_authenticate_with name: 'admin', password: 'pw', only: :index
+  skip_before_action :verify_authenticity_token
 
   def index
     @orders = Order.all
@@ -13,8 +14,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(first_name: params[:first_name], last_name: params[:last_name], username: params[:username],
-                       email: params[:email], address: params[:address], address2: params[:address2], country: params[:country], prefecture: params[:prefecture], credit_card_name: params[:credit_card_name], credit_card_number: params[:credit_card_number], credit_card_expiration: params[:credit_card_expiration], credit_card_cvv: params[:credit_card_cvv], cart_id: session[:cart_id])
+    @order = Order.new(build_order_params)
     if @order.save
       # メール送信時にプレビューに渡すデータを指定
       OrderMailer.send_order_email(@order).deliver_later
@@ -27,7 +27,23 @@ class OrdersController < ApplicationController
     end
   end
 
-  # def order_params エラーになる
-  # params.require(:order).permit(:first_name, :last_name, :username, :email, :address, :address2, :country, :prefecture, :credit_card_name, :credit_card_number, :credit_card_expiration, :credit_card_cvv)
-  # end
+  private
+
+  def build_order_params
+    {
+      first_name: params[:first_name],
+      last_name: params[:last_name],
+      username: params[:username],
+      email: params[:email],
+      address: params[:address],
+      address2: params[:address2],
+      country: params[:country],
+      prefecture: params[:prefecture],
+      credit_card_name: params[:credit_card_name],
+      credit_card_number: params[:credit_card_number],
+      credit_card_expiration: params[:credit_card_expiration],
+      credit_card_cvv: params[:credit_card_cvv],
+      cart_id: session[:cart_id]
+    }
+  end
 end
