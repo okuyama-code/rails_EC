@@ -7,6 +7,9 @@ git checkout main
 git pull origin main --rebase
 ```
 
+docker compose run --rm web bundle exec rubocop -A
+
+
 ブランチの削除
 ```
 git branch -D products
@@ -30,7 +33,7 @@ sudo chmod -R 777 /home/okuyama/rails_ec/
 
 heroku run rails db:migrate
 
-https://peaceful-waters-90263-196a9ea53a5c.herokuapp.com/ 
+https://peaceful-waters-90263-196a9ea53a5c.herokuapp.com/
 
 # README
 
