@@ -3,6 +3,7 @@
 class CartProductsController < ApplicationController
   def index
     @cart_products = current_cart.cart_products
+    @order = Order.new
   end
 
   def create

@@ -1,2 +1,79 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
+
+.order-center {
+  text-align: center;
+  margin: 20px 300px;
+}
+
+.font-bold {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.order-product-info {
+  border: 1px solid rgb(70, 69, 69);
+  padding: 15px 15px;
+  border-radius: 10px;
+  background-color: rgb(93, 91, 91);
+  color: #e7e2e2;
+}
+
+.order-border-info {
+  border: 1px solid rgb(70, 69, 69);
+  padding: 15px 15px;
+  border-radius: 10px;
+}
+
+.order-border-main {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  border: 1px solid rgb(70, 69, 69);
+  border-radius: 10px;
+}
+
+.order-border {
+  display: inline-block;
+  border: 1px solid rgb(70, 69, 69);
+  padding: 15px 15px;
+  border-radius: 10px;
+}
+
+.order-address {
+  padding-top: 15px;
+}
+
+.btncss {
+  display: inline-block;
+  border: 2mm ridge rgba(78, 123, 72, 0.6);
+  padding: 10px 20px;
+  text-decoration: none;
+  color: black;
+  background: linear-gradient(to bottom right, blue, pink);
+  font-weight: bold;
+  border-radius: 5px;
+  margin: 5px 10px;
+
+  &:hover {
+    color: white;
+    background: linear-gradient(to bottom right, rgb(94, 255, 0), rgb(20, 25, 165));
+    transition: color 1s ease, background 2s ease;
+  }
+}
+
+.link-flex {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 20%;
+}
+
+.session {
+  color: #6bf608;
+  border: 1px solid black;
+  padding: 0px 10px;
+  background-color: #f9e6e6;
+
+}

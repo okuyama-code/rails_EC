@@ -6,7 +6,7 @@ module Admin
     http_basic_authenticate_with name: 'admin', password: 'pw'
 
     def index
-      @products = Product.all
+      @products = Product.kept
     end
 
     def new
@@ -42,7 +42,7 @@ module Admin
 
     def destroy
       @product = Product.find(params[:id])
-      @product.destroy
+      @product.discard
       redirect_to admin_products_path(@product), notice: '商品を削除しました。'
     end
 

@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: %i[show edit update show]
 
   def index
-    @products = Product.all
+    @products = Product.kept
   end
 
   def new
@@ -21,7 +21,7 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @products = Product.order(created_at: :desc)
+    @products = Product.kept.order(created_at: :desc)
     if @product.nil?
       flash[:error] = '指定された商品は存在しません。'
       redirect_to root_path
@@ -33,7 +33,7 @@ class ProductsController < ApplicationController
 
   def update
     if @product.update(product_params)
-      redirect_to products_path(@product), notice: 'Product was successfully updated.'
+      redirect_to product_path(@product), notice: '商品情報が更新されました。'
     else
       render :edit
     end

@@ -67,6 +67,7 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'htmlbeautifier'
+  gem 'letter_opener_web'
   gem 'pry-rails'
   gem 'rails_best_practices'
   gem 'rubocop', require: false
@@ -88,3 +89,5 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
+
+gem 'discard', '~> 1.2'

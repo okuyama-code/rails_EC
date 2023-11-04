@@ -1,3 +1,4 @@
+<%= link_to "メール確認" , "/letter_opener", class: 'btncss' %>
 ## よく使うコマンド
 ```
 git checkout main
@@ -6,6 +7,9 @@ git checkout main
 git pull origin main --rebase
 ```
 
+docker compose run --rm web bundle exec rubocop -A
+
+
 ブランチの削除
 ```
 git branch -D products
@@ -13,6 +17,10 @@ git branch -D products
 
 ```
 git push heroku products-sub:main
+```
+
+```
+git push heroku order:main
 ```
 
 ```
@@ -25,7 +33,7 @@ sudo chmod -R 777 /home/okuyama/rails_ec/
 
 heroku run rails db:migrate
 
-https://peaceful-waters-90263-196a9ea53a5c.herokuapp.com/ deployed to Heroku
+https://peaceful-waters-90263-196a9ea53a5c.herokuapp.com/
 
 # README
 
