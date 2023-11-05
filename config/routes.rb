@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :products
   resources :cart_products
   resources :orders, only: %i[index show create]
+  resources :promotion_codes, only: %i[index]
 
   post '/cart_products/destroy', to: 'cart_products#destroy'
 end
