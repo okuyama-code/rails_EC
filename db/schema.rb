@@ -91,10 +91,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_04_230431) do
     t.string "code"
     t.integer "discount_amount"
     t.boolean "used", default: false
-    t.bigint "order_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["order_id"], name: "index_promotion_codes_on_order_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
@@ -102,5 +100,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_04_230431) do
   add_foreign_key "cart_products", "carts"
   add_foreign_key "cart_products", "products"
   add_foreign_key "orders", "carts"
-  add_foreign_key "promotion_codes", "orders"
 end
