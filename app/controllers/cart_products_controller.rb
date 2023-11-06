@@ -4,6 +4,7 @@ class CartProductsController < ApplicationController
   def index
     @cart_products = current_cart.cart_products
     @order = Order.new
+    @promotion_code = PromotionCode.new
   end
 
   def create
@@ -41,4 +42,8 @@ class CartProductsController < ApplicationController
       current_cart.cart_products.build(product_id:).save
     end
   end
+
+  # def total_price
+  #   cart_products.
+  # end
 end

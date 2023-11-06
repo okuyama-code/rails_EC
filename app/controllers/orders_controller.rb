@@ -7,6 +7,7 @@ class OrdersController < ApplicationController
 
   def index
     @orders = Order.all
+
   end
 
   def show
@@ -14,6 +15,20 @@ class OrdersController < ApplicationController
   end
 
   def create
+    # TODO フォームから送られてくる情報を探しに行く
+    # params[:code]が送られていない。elseの処理が走っている
+    code = params[:code]
+    p "デバック"
+    p code # nilだった
+    p params[:code]
+    @promotion_code = PromotionCode.find_by(code: code, used: false)
+    if @promotion_code
+      @promotion_code.updated(used: true)
+      flash[:notice] = "usedがtrueになりました。"
+    else
+      flash[:alert] = "入力したコードは現在使用できません"
+    end
+
     @order = Order.new(order_params)
     if @order.save
       # メール送信時にプレビューに渡すデータを指定
