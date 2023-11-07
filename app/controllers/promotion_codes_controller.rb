@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PromotionCodesController < ApplicationController
   def index
     @promotion_code = PromotionCode.all
@@ -16,9 +18,9 @@ class PromotionCodesController < ApplicationController
       redirect_to request.referer
     end
 
-    pp "デバック"
-    pp params[:code]
-    pp find_promotion_code.used
-    pp find_promotion_code.cart_id
+    Rails.logger.debug 'デバック'
+    Rails.logger.debug params[:code]
+    Rails.logger.debug find_promotion_code.used
+    Rails.logger.debug find_promotion_code.cart_id
   end
 end
