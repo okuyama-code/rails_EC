@@ -23,16 +23,6 @@ class CartProductsController < ApplicationController
 
   private
 
-  # def current_cart
-  #   if session[:cart_id]
-  #     Cart.find(session[:cart_id])
-  #   else
-  #     cart = Cart.create
-  #     session[:cart_id] = cart.id
-  #     cart
-  #   end
-  # end
-
   def increase_or_create(product_id)
     cart_product = current_cart.cart_products.find_by(product_id:)
     if cart_product
