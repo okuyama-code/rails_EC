@@ -47,10 +47,7 @@
                     </div>
                 </div>
             </form> %>
-            # TODO ここがおかしい params[:code]がorderのcreateに渡っていない。
-            <%= form_with model: @promotion_code, url: orders_path, method: :post do |f| %>
-                <%= f.text_field :code, class: "form-control", :placeholder => "RKFIFIFN35GG" %>
-            <% end %>
+            
 
         </div>
 

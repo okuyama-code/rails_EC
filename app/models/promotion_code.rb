@@ -1,7 +1,3 @@
 class PromotionCode < ApplicationRecord
-  belongs_to :order, optional: true
-
-  def use!
-    update(used: true)
-  end
+  belongs_to :cart, optional: true
 end
