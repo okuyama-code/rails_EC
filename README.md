@@ -1,4 +1,8 @@
 <%= link_to "メール確認" , "/letter_opener", class: 'btncss' %>
+
+rake promotion_code:generate
+PromotionCode.all
+
 ## よく使うコマンド
 ```
 git checkout main

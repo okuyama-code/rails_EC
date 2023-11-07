@@ -34,20 +34,25 @@
         <% end %>
 
         <li class="list-group-item d-flex justify-content-between">
-          <span>Total (USD)</span>
+          <span>合計金額(値引き前)</span>
           <strong><%= number_to_currency(@cart_products.inject(0) { |sum, cart_product| sum + cart_product.product.price * cart_product.quantity }, unit:"¥", strip_insignificant_zeros: true) %></strong>
         </li>
       </ul>
     </div>
-            <%# <form class="card p-2">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Promo code">
-                    <div class="input-group-append">
-                        <button type="submit" class="btn btn-secondary">Redeem</button>
-                    </div>
-                </div>
-            </form> %>
-            
+        <% if current_cart.promotion_code %>
+            <p>プロモーションコードによる値引額は<strong><%= current_cart.promotion_code.discount_amount %></strong>円です</p>
+            <p>プロモーションコード適応後の合計金額は
+                <strong><%= number_to_currency(@cart_products.inject(0) { |sum, cart_product| sum + cart_product.product.price * cart_product.quantity } - current_cart.promotion_code.discount_amount, unit:"¥", strip_insignificant_zeros: true) %></strong>です
+            </p>
+        <% else %>
+             <%= form_with url: promotion_codes_path do |f| %>
+                <%= f.text_field :code, class: "form-control", placeholder: "プロモーションコードを入力" %>
+                <%= f.submit '適応', class: "btn btn-secondary" %>
+            <% end %>
+        <% end %>
+
+
+
 
         </div>
 
