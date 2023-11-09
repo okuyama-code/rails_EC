@@ -7,13 +7,13 @@ class PromotionCodesController < ApplicationController
 
   def create
     find_promotion_code = PromotionCode.find_by(code: params[:code])
-    unless find_promotion_code.used
-      find_promotion_code.update(used: true, cart_id: session[:cart_id])
-      flash[:success] = 'プロモーションコードが適応されました'
-      redirect_to cart_products_path
-    else
+    if find_promotion_code.used?
       flash[:alert] = 'このコードは無効です'
       redirect_to request.referer
+    else
+       find_promotion_code.update(used: true, cart_id: session[:cart_id])
+       flash[:success] = 'プロモーションコードが適応されました'
+       redirect_to cart_products_path
     end
   end
 end

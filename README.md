@@ -24,7 +24,7 @@ git push heroku products-sub:main
 ```
 
 ```
-git push heroku order:main
+git push heroku promotion_code:main
 ```
 
 ```
