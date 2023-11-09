@@ -1,4 +1,8 @@
 <%= link_to "メール確認" , "/letter_opener", class: 'btncss' %>
+
+rake promotion_code:generate
+PromotionCode.all
+
 ## よく使うコマンド
 ```
 git checkout main
@@ -20,7 +24,7 @@ git push heroku products-sub:main
 ```
 
 ```
-git push heroku order:main
+git push heroku promotion_code:main
 ```
 
 ```
