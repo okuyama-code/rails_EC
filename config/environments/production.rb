@@ -108,4 +108,4 @@ Rails.application.configure do
   }
 end
 
-# TODO: https://blog.f-arts.work/archives/653
+

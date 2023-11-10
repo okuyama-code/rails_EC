@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class CartProductsController < ApplicationController
+  # TODO newしただけのところが理解できない。
   def index
     @cart_products = current_cart.cart_products
     @order = Order.new

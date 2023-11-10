@@ -34,6 +34,7 @@
         <% end %>
 
         <li class="list-group-item d-flex justify-content-between">
+            # TODO メソッドの理解が足りない。メソッドを自在に使えるようになりたい
           <span>合計金額(値引き前)</span>
           <strong><%= number_to_currency(@cart_products.inject(0) { |sum, cart_product| sum + cart_product.product.price * cart_product.quantity }, unit:"¥", strip_insignificant_zeros: true) %></strong>
         </li>
