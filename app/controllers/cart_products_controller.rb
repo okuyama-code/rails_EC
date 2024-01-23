@@ -7,6 +7,9 @@ class CartProductsController < ApplicationController
     @cart_products = @cart.cart_products
     @order = Order.new
     @promotion_code = PromotionCode.new
+    
+    @total = @cart.calc_total
+
   end
 
   def create

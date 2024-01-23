@@ -29,8 +29,8 @@
           <% end %>
 
           <li class="list-group-item d-flex justify-content-between">
-            <span>合計金額(値引き前)</span>
-            <strong><%= number_to_currency(@cart_products.inject(0) { |sum, cart_product| sum + cart_product.product.price * cart_product.quantity }, unit:"¥", strip_insignificant_zeros: true) %></strong>
+            <span>お支払い金額</span>
+            <strong><%= convert_to_jpy(@total) %></strong>
           </li>
         </ul>
     </div>
