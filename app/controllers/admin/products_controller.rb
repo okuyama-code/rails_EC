@@ -30,7 +30,7 @@ module Admin
     def update
       @product = Product.find(params[:id])
       if @product.update(product_params)
-        redirect_to admin_products_path(@product), notice: '商品情報を更新しました。'
+        redirect_to admin_products_path, notice: '商品情報を更新しました。'
       else
         render :edit
       end

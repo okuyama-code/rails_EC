@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container px-4 px-lg-5">
     <a class="navbar-brand" href="/">ランニングシューズ通販サイト</a>
-    <a class="navbar-brand" href="/">Homeへ</a>
+     <%= link_to '商品管理', admin_products_path, class: 'navbar-brand' %>
+     <%= link_to '購入詳細', orders_path, class: 'navbar-brand' %>
       <form class="d-flex">
         <%= link_to cart_products_path, class: "btn btn-outline-dark" do %>
         <i class="bi-cart-fill me-1"></i>

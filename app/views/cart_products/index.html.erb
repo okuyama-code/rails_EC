@@ -33,7 +33,6 @@
               </div>
             </li>
           <% end %>
-
           <% if @promotion_code %>
             <li class="list-group-item d-flex justify-content-between bg-body-tertiary">
               <div class="text-success">
@@ -55,15 +54,14 @@
           </li>
         </ul>
 
-        <%# プロモーションコード %>
-        <%= form_with url: register_promotion_code_path, method: :post, data: { turbo: false } do |f| %>
-          <div class="input-group">
-            <%= f.text_field :code, class: "form-control", placeholder: "プロモコードを入力" %>
-            <button class="btn btn-secondary" type="submit">適応する</button>
-          </div>
-        <% end %>
     </div>
-
+    <%# プロモーションコード %>
+    <%= form_with url: register_promotion_code_path, method: :post, data: { turbo: false } do |f| %>
+      <div class="input-group">
+        <%= f.text_field :code, class: "form-control", placeholder: "プロモコードを入力" %>
+        <button class="btn btn-secondary" type="submit">適応</button>
+      </div>
+    <% end %>
   </div>
 
   <%# =========== ordersのform============= %>
@@ -120,29 +118,12 @@
               </div>
           </div>
           <hr class="mb-4">
-          <div class="custom-control custom-checkbox">
+          <h4 class="mb-3">クレジットカード</h4>
 
-              <label class="custom-control-label" for="same-address">Shipping address is the same as my billing address</label>
-          </div>
-          <div class="custom-control custom-checkbox">
-
-              <label class="custom-control-label" for="save-info">Save this information for next time</label>
-          </div>
-          <hr class="mb-4">
-          <h4 class="mb-3">Payment</h4>
-          <div class="d-block my-3">
-              <div class="custom-control custom-radio">
-
-                  クレジットカード
-              </div>
-
-          </div>
           <div class="row">
               <div class="col-md-6 mb-3">
                   <label for="cc-name">カードの名義</label>
                   <%= f.text_field :credit_card_name, class: "form-control", :placeholder => "Taro Yamada" %>
-                  <small class="text-muted">カードに表示されるフルネーム</small>
-                  <div class="invalid-feedback"> Name on card is required </div>
               </div>
               <div class="col-md-6 mb-3">
                   <label for="cc-number">カード番号</label>
@@ -164,7 +145,6 @@
           </div>
           <hr class="mb-4">
           <%= f.submit "購入する",  class:"btn btn-primary btn-lg btn-block" %>
-          <%= link_to '購入詳細ページへ', orders_path, class: 'btn btn-primary' %>
       <% end %>
   </div>
 
