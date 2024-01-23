@@ -1,3 +1,5 @@
+## 以前作成した完成コードのブランチ　create_me
+
 ## githubソースコード　＆　ディレクトリ場所
 https://github.com/okuyama-code/rails_ec
 ubuntuの ~/rails_ec
