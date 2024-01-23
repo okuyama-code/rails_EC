@@ -1,17 +1,29 @@
 # frozen_string_literal: true
 
 class CartProductsController < ApplicationController
-  # TODO newしただけのところが理解できない。
+  before_action :set_cart
+
   def index
-    @cart_products = current_cart.cart_products
+    # @cart_products = current_cart.cart_products
     @order = Order.new
     @promotion_code = PromotionCode.new
   end
 
   def create
-    increase_or_create(params[:product_id])
+    pp "デバック！！！！！！！！！！！！！"
 
-    redirect_to cart_products_path, notice: 'カートの追加に成功しました'
+    product_id = params[:product_id]
+    quantity = params[:quantity].to_i
+    cart_product = CartProduct.find_by(product_id:, cart_id: @cart.id)
+
+    if cart_product
+      cart_product.increment(:quantity, quantity)
+      cart_product.save
+    else
+      CartProduct.create(product_id:, cart_id: @cart.id, quantity:)
+    end
+    
+    redirect_to request.referer, notice: 'カートの追加に成功しました'
   end
 
   def destroy

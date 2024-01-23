@@ -38,27 +38,14 @@
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
                     <h1 class="display-4 fw-bolder">Rails EC</h1>
-                    <p class="lead fw-normal text-white-50 mb-0">HCの課題作成中</p>
                 </div>
             </div>
         </header>
-        <!-- Section-->
-        <div class="link-flex">
-            <%= link_to '管理者画面へ', "/admin/products", class: 'btncss' %>
-            <% if session[:cart_id] %>
-                <%=  link_to "カートページへ", cart_products_path, class: 'btncss' %>
-            <% end%>
-            <%=  link_to "orderページへ", orders_path, class: 'btncss' %>
-            <%= link_to "プロモーションコード一覧へ", promotion_codes_path, class: 'btncss' %>
-        </div>
-
-
-
-
         <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5">
+						<h2>セッションIDは<%= session[:cart_id] %></h2>
                 <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                    <%= render partial: 'product_card' %>
+                    <%= render partial: 'product' %>
                 </div>
             </div>
         </section>
