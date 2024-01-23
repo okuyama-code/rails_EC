@@ -1,4 +1,8 @@
-<h1 class="display-4">商品一覧</h1>
+<%= render 'shared/navigation', :cart_size => @cart_size %>
+<div class="text-center">
+  <h2 class="my-2">商品一覧</h2>
+  <%= link_to '新規商品作成', new_admin_product_path, class: 'btn btn-success my-2' %>
+</div>
 <table class="table table-bordered table-hover">
   <thead>
     <tr>
@@ -23,6 +27,5 @@
   </tbody>
 </table>
 
-<%= link_to '新規商品作成', new_admin_product_path, class: 'btn btn-success' %>
-<%= link_to '商品購入ページへ', "/", class: 'btn btn-success' %>
+
 
