@@ -1,0 +1,33 @@
+<% @products.each do |product| %>
+  <div class="col mb-5">
+    <div class="card h-100">
+      <% if product.image.attached? %>
+        <%= image_tag product.image, class: "card-img-top img-fluid", style: "width: 100%; height: 80%; object-fit: cover;", alt: "..." %>
+      <% end %>
+      <% unless product.image.attached? %>
+        <%= image_tag "https://dummyimage.com/450x300/dee2e6/6c757d.jpg" , class: "card-img-top", style: "width: 100%; height: 100%; object-fit: cover;" %>
+      <% end %>
+
+
+
+      <!-- 商品の詳細-->
+      <div class="card-body px-4">
+        <div class="text-center">
+          <!-- 商品名-->
+          <h5 class="fw-bolder">
+            <%= link_to product.name, product_path(product), class: "link-dark" %>
+          </h5>
+          <div>
+            <%= convert_to_jpy(product.price) %>
+          </div>
+          <div><%= "在庫数: #{product.stock}" %></div>
+
+          <%# product カートへ追加 %>
+          <div>
+            <%= link_to "カートに入れる", cart_products_path(product_id: product.id, quantity: 1), data: { "turbo-method": :post }, class: "btn btn-outline-dark mt-auto" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

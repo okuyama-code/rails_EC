@@ -9,7 +9,7 @@ namespace :promotion_code do
       code = SecureRandom.alphanumeric(7).upcase
       PromotionCode.create!(
         code:,
-        discount_amount: (rand(2..20) * 50).round(-2)
+        discount: (rand(2..20) * 50).round(-2)
       )
     end
   end

@@ -1,0 +1,3 @@
+<% flash.each do |key, value| %>
+  <%= content_tag(:p, value.html_safe, class: "text-center alert alert-#{key} mt-5") %>
+<% end %>

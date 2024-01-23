@@ -1,3 +1,4 @@
+<%= render 'shared/navigation', :cart_size => @cart_size %>
 <div class="container mt-5">
   <table class="table table-bordered">
     <thead class="thead-dark">
@@ -24,7 +25,4 @@
   </table>
 </div>
 
-<div class="link-flex mt-5">
-    <%=  link_to "homeへ", root_path, class: 'btncss' %>
-    <%= link_to '管理者画面へ', "/admin/products", class: 'btncss' %>
-</div>
+
