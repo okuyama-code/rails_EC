@@ -4,7 +4,7 @@ class CartProductsController < ApplicationController
   before_action :set_cart
 
   def index
-    # @cart_products = current_cart.cart_products
+    @cart_products = @cart.cart_products
     @order = Order.new
     @promotion_code = PromotionCode.new
   end
@@ -22,31 +22,15 @@ class CartProductsController < ApplicationController
     else
       CartProduct.create(product_id:, cart_id: @cart.id, quantity:)
     end
-    
-    redirect_to request.referer, notice: 'カートの追加に成功しました'
+
+    redirect_to request.referer, notice: 'カートに追加しました'
   end
 
   def destroy
-    # @cart_products = current_cart.cart_products
-    # @cart_products.destroy_all
-    @cart_product = current_cart.cart_products.find_by(cart_id: session[:cart_id])
-    @cart_product.destroy
-    redirect_to request.referer
+    cart_product = CartProduct.find(params[:id])
+    cart_product.destroy
+    redirect_to request.referer, flash: { success: "#{cart_product.product.name}を削除しました。" }
   end
 
-  private
 
-  def increase_or_create(product_id)
-    cart_product = current_cart.cart_products.find_by(product_id:)
-    if cart_product
-      # cart_product.increment!(:quantity, 1)
-      cart_product.update(quantity: cart_product.quantity + 1)
-    else
-      current_cart.cart_products.build(product_id:).save
-    end
-  end
-
-  # def total_price
-  #   cart_products.
-  # end
 end
