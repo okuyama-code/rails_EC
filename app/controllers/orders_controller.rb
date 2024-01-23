@@ -18,8 +18,7 @@ class OrdersController < ApplicationController
     if @order.save
       # メール送信時にプレビューに渡すデータを指定
       OrderMailer.send_order_email(@order).deliver_later
-      # redirect_to orders_path, notice: '購入者の情報をordersテーブルに保存しました'
-      redirect_to root_path, notice: 'ご購入ありがとうございます。'
+      redirect_to root_path, flash: { success: 'ご購入ありがとうございました。' }
       session[:cart_id] = nil
     else
       flash[:notice] = 'DBにデータを追加するのに失敗しています。空欄はありませんか？すべてのフォームに入力してください'

@@ -7,6 +7,12 @@ class Cart < ApplicationRecord
 
   belongs_to :promotion_code, optional: true
 
+  def decrease_product_stock
+    cart_products.each do |cart_product|
+      quantity = cart_product.quantity
+      cart_product.product.update(stock: cart_product.product.stock - quantity)
+    end
+  end
 
   def calc_total
     total = cart_products.inject(0) { |result, cart_product| result + cart_product.subtotal }
