@@ -1,5 +1,11 @@
 <%= render 'shared/navigation', :cart_size => @cart_size %>
 
+<%= render 'shared/flash' %>
+
+<% if @order %>
+  <%= render 'shared/error_messages', :resource => @order %>
+<% end %>
+
 
 <div class="container">
   <div class="py-5 text-center">
@@ -28,27 +34,36 @@
             </li>
           <% end %>
 
+          <% if @promotion_code %>
+            <li class="list-group-item d-flex justify-content-between bg-body-tertiary">
+              <div class="text-success">
+                <h6 class="my-0">プロモコード</h6>
+                <small><%= @promotion_code.code %></small>
+              </div>
+              <div>
+                <span class="text-success">-<%= convert_to_jpy(@promotion_code.discount)%></span>
+                <%= link_to cancel_promotion_code_path, data: {"turbo-method": :post }, class: "btn btn-outline-danger" do %>
+                  <i class="bi-trash"></i>
+                <% end %>
+              </div>
+            </li>
+          <% end %>
+
           <li class="list-group-item d-flex justify-content-between">
             <span>お支払い金額</span>
             <strong><%= convert_to_jpy(@total) %></strong>
           </li>
         </ul>
-    </div>
-      <% if @cart.promotion_code %>
-        <div class="promotion-info alert alert-success">
-          <p>プロモーションコードによる値引額は<strong><%= current_cart.promotion_code.discount_amount %></strong>円です</p>
-          <p>プロモーションコード適応後の合計金額は
-              <strong><%= number_to_currency(@cart_products.inject(0) { |sum, cart_product| sum + cart_product.product.price * cart_product.quantity } - current_cart.promotion_code.discount_amount, unit:"¥", strip_insignificant_zeros: true) %></strong>です
-          </p>
-        </div>
-      <% else %>
-        <%= form_with url: promotion_codes_path, data: { turbo: false } do |f| %>
-          <div class="promotion-form input-group mb-3">
-            <%= f.text_field :code, class: "form-control", placeholder: "プロモーションコードを入力" %>
-            <button class="btn btn-secondary" type="submit">適応</button>
+
+        <%# プロモーションコード %>
+        <%= form_with url: register_promotion_code_path, method: :post, data: { turbo: false } do |f| %>
+          <div class="input-group">
+            <%= f.text_field :code, class: "form-control", placeholder: "プロモコードを入力" %>
+            <button class="btn btn-secondary" type="submit">適応する</button>
           </div>
         <% end %>
-      <% end %>
+    </div>
+
   </div>
 
   <%# =========== ordersのform============= %>

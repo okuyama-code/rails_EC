@@ -6,8 +6,8 @@ class CartProductsController < ApplicationController
   def index
     @cart_products = @cart.cart_products
     @order = Order.new
-    @promotion_code = PromotionCode.new
-    
+    @promotion_code = @cart.promotion_code
+
     @total = @cart.calc_total
 
   end

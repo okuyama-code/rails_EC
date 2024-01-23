@@ -3,7 +3,10 @@ https://github.com/okuyama-code/rails_ec
 ubuntuの ~/rails_ec
 
 ## プロモーションコード作成
+```
 rake promotion_code:generate
+```
+
 PromotionCode.all
 
 ## よく使うコマンド
@@ -16,23 +19,6 @@ git pull origin main --rebase
 
 docker compose run --rm web bundle exec rubocop -A
 
-
-ブランチの削除
-```
-git branch -D products
-```
-
-```
-git push heroku products-sub:main
-```
-
-```
-git push heroku promotion_code:main
-```
-
-```
-http://localhost:3000/rails/info/routes
-```
 
 ```
 sudo chmod -R 777 /home/okuyama/rails_ec/

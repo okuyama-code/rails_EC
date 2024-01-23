@@ -1,19 +1,27 @@
 # frozen_string_literal: true
 
 class PromotionCodesController < ApplicationController
-  def index
-    @promotion_code = PromotionCode.all
+  before_action :set_cart
+
+  def register
+    if params[:code].empty?
+      redirect_to request.referer, flash: { danger: 'コードを入力してください' }
+      return
+    end
+
+    code = params[:code]
+    promotion_code = PromotionCode.find_by(code:, order_id: nil)
+
+    if promotion_code
+      @cart.update(promotion_code_id: promotion_code.id)
+      redirect_to request.referer, flash: { success: 'プロモーションコードを登録しました。' }
+    else
+      redirect_to request.referer, flash: { danger: '入力したコードが間違っているか、すでに使用済です。' }
+    end
   end
 
-  def create
-    find_promotion_code = PromotionCode.find_by(code: params[:code])
-    if find_promotion_code.used?
-      flash[:alert] = 'このコードは無効です'
-      redirect_to request.referer
-    else
-       find_promotion_code.update(used: true, cart_id: session[:cart_id])
-       flash[:success] = 'プロモーションコードが適応されました'
-       redirect_to cart_products_path
-    end
+  def cancel
+    @cart.update(promotion_code_id: nil)
+    redirect_to request.referer, flash: { success: 'プロモーションコードを解除しました。' }
   end
 end
